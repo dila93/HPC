@@ -39,6 +39,34 @@ Se encuentran originalmente problemas en la multiplicación correcta de matrices
 <HR width=100% align="center">
 <br>
 <h2>RECOLECCIÓN DE DATOS</h2>
-1. En la tabla 1.1, se puede observar los tamaños de las matrices usados para CPU y GPU
-![Texto alternativo](/Tamaños_matriz.PNG)
+<br>
+1. En la **tabla 1.1**, se puede observar los tamaños de las matrices usados para CPU y GPU
+![tabla 1.1](/Tamaños_matriz.PNG)
+<br>
+<h6>tabla 1.1</h6>
+<br>
+2. Tanto para CPU como para GPU, se toma para cada tamaño de matriz, se hacen 5 ejecuciones y se toma el promedio de las 5 ejecuciones como podemos observar en la **gráfica 1.1** para la CPU y la **gráfica 1.2** para la GPU
+![gráfica 1.1](/grafica1-CPU.PNG)
+<br>
+<h6>gráfica 1.1</h6>
+<br>
+![gráfica 1.2](/grafica1.PNG)
+<br>
+<h6>gráfica 1.2</h6>
+<br>
+3. En la gráfica de abajo **gráfica 1.3**, se puede observar claramente la acelaracion del algoritmo de multiplicacion de matrices MxN usando CUDA. esta aceleracion nos indica el impacto que se tiene ejecutar codigo de computacion en GPUs, ya que podemos observar que para matrices de tamaño muy grande la GPU trabaja mas rapidamente
+![gráfica 1.3](/grafica1-Aceleracion.PNG)
+<br>
+<h6>gráfica 1.3</h6>
+<br>
+En las **gráficas 1.4** y **1.5** respectivamente podemos observar el comportamiento de la ejecucion del algoritmo para tamaños de matrices muy pequeñas y muy grandes, como se puede ver, en las matrices pequeñas es mejor el tiempo de ejecuccion de la CPU, esto se debe a que es demorado hacer todo el proceso de separar memoria en el device, hacer la copia de los datos de CPU to GPU y GPU to CPU mas el tiempo de ejecuccion en el divice, esto impacta en el performance del algoritmo.
+<br>
+![gráfica 1.4](/Comparatia1.PNG)
+<br>
+<h6>gráfica 1.4</h6>
+<br>
+![gráfica 1.5](/Comparatia2.PNG)
+<br>
+<h6>gráfica 1.5</h6>
+<br>
 <br>
