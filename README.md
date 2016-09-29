@@ -75,5 +75,5 @@ En las **gráficas 1.4** y **1.5** respectivamente podemos observar el comportam
 1. Los tiempos de ejecución en CPU son mejores cuando se trata de matrices pequeñas
 2. Los tiempos de ejecución en GPU son mejores cuando se trata de matrices muy grandes
 3. El procesamiento de grandes cantidades de datos funciona mejor en GPU porque se utiliza la tarjeta gráfica como recurso.
-4. Hemos apreciado que aumentar el numero de bloques y los TILE_WIDTH se disminuyen los tiempos de ejcución.
+4. Podemos destacar que el performance, de ciertos algoritmos computacionales se ven muy bien en las GPU, trabajar con hilos siempre sera una forma de mejorar el desempeño de nuestros algoritmos, ventajas al trabajar con GPU son muchas a la hora de conseguir que un computador responda rapidamente a nuestras peticiones, desventajas podemos decir que es confuso inicialmente programar en las GPU, ya que nos toca cambiar la forma de ver como se procesa el algoritmo en el computador, a futuro podriamos mejorar nuestros conocimientos en cuanto a programacion en GPUs y tal vez a provehcar la velocidad que estas nos brindan para implementar llamados tipo AJAX que son muy comunes en los servicios WEB
 <br>
