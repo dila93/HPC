@@ -59,7 +59,7 @@ Se encuentran originalmente problemas en la multiplicación correcta de matrices
 <br>
 <h6>gráfica 1.3</h6>
 <br>
-En las **gráficas 1.4** y **1.5** respectivamente podemos observar el comportamiento de la ejecucion del algoritmo para tamaños de matrices muy pequeñas y muy grandes, como se puede ver, en las matrices pequeñas es mejor el tiempo de ejecuccion de la CPU, esto se debe a que es demorado hacer todo el proceso de separar memoria en el device, hacer la copia de los datos de CPU to GPU y GPU to CPU mas el tiempo de ejecuccion en el divice, esto impacta en el performance del algoritmo.
+4. En las **gráficas 1.4** y **1.5** respectivamente podemos observar el comportamiento de la ejecucion del algoritmo para tamaños de matrices muy pequeñas y muy grandes, como se puede ver, en las matrices pequeñas es mejor el tiempo de ejecuccion de la CPU, esto se debe a que es demorado hacer todo el proceso de separar memoria en el device, hacer la copia de los datos de CPU to GPU y GPU to CPU mas el tiempo de ejecuccion en el divice, esto impacta en el performance del algoritmo.
 <br>
 ![gráfica 1.4](/Comparatia1.PNG)
 <br>
