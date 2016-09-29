@@ -38,3 +38,7 @@ Se encuentran originalmente problemas en la multiplicación correcta de matrices
 <br>
 <HR width=100% align="center">
 <br>
+<h2>RECOLECCIÓN DE DATOS</h2>
+1. En la tabla 1.1, se puede observar los tamaños de las matrices usados para CPU y GPU
+![Texto alternativo](/Tamaños_matriz.PNG)
+<br>
