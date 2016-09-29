@@ -24,11 +24,11 @@
 <HR width=100% align="center">
 <br>
 <h2 >ENUNCIADO</h2>
-* Construir un programa que calcule la multiplicación de matrices (floats) de cualquier tamaño A(mxn) y B(nxl) en  CUDA.
+Construir un programa que calcule la multiplicación de matrices (floats) de cualquier tamaño A(mxn) y B(nxl) en  CUDA.
 
-* Evaluar el desempeño del programa construido comparándolo con la versión secuencial del mismo en CPU
+Evaluar el desempeño del programa construido comparándolo con la versión secuencial del mismo en CPU
 
-* Se debe entregar un repositorio en github por equipo de trabajo que contenga el código de ambas implementaciones, documentación sobre el código donde se explique detalladamente lo que se hace y un documento  en MarkDown donde se especifiquen gráficas de tiempos y gráfica de aceleración (se hace con un promedio de tiempos). Se debe tener un apartado de conclusiones del trabajo realizado.
+Se debe entregar un repositorio en github por equipo de trabajo que contenga el código de ambas implementaciones, documentación sobre el código donde se explique detalladamente lo que se hace y un documento  en MarkDown donde se especifiquen gráficas de tiempos y gráfica de aceleración (se hace con un promedio de tiempos). Se debe tener un apartado de conclusiones del trabajo realizado.
 <br>
 <h2 >GENERACIÓN DEL CÓDIGO</h2>
 Para el Desarrollo de nuestro código, tomamos en cuenta los talleres hechos previamente, como podemos observar en el archivo **parcial1.c**, el código se divide en varias partes dónde las funciones mas importantes son **matrixMultKernelTiled**,**matrixMultKernel**,**matrixMultCPU2**, las cuales se refieren respectivamente a la función de multiplicación en gpu con memoria compartida, la funcion para gpu, y la función para cpu, estas funciones reciben tres matrices, de las cuales dos tienen valores a multiplicar y la tercera siempre es la matriz lineal donde se guardarán los resultados, los tiempos de ejecucion y aceleración se toman mediante se hace el llamado a las funciones, y las matrices resultantes son analizadas para verificar que las multiplicaciones sean correctas.
@@ -69,4 +69,11 @@ En las **gráficas 1.4** y **1.5** respectivamente podemos observar el comportam
 <br>
 <h6>gráfica 1.5</h6>
 <br>
+<HR width=100% align="center">
+<br>
+<h2>CONCLUSIONES</h2>
+1. Los tiempos de ejecución en CPU son mejores cuando se trata de matrices pequeñas
+2. Los tiempos de ejecución en GPU son mejores cuando se trata de matrices muy grandes
+3. El procesamiento de grandes cantidades de datos funciona mejor en GPU porque se utiliza la tarjeta gráfica como recurso.
+4. Hemos apreciado que aumentar el numero de bloques y los TILE_WIDTH se disminuyen los tiempos de ejcución.
 <br>
