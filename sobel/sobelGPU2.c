@@ -12,7 +12,7 @@ using namespace cv;
 #define MASK_HEIGHT 3
 
 
-__global__ void sobelFilterGPU2(int *data_img, int *G_x, int *G_y,int *grad_x, int *grad_y,  int *grad, int y, int x) {
+__global__ void sobelFilterGPu(unsigned char *data_img, unsigned char *G_x, unsigned char *G_y,unsigned char *grad_x, unsigned char *grad_y,  unsigned char *grad, int y, int x) {
 
   int row = blockIdx.y * blockDim.y + threadIdx.y;
   int col = blockIdx.x * blockDim.x + threadIdx.x;
@@ -39,12 +39,12 @@ __global__ void sobelFilterGPU2(int *data_img, int *G_x, int *G_y,int *grad_x, i
   //esta parte del codigo es para aplicar ya como tal el filtro
   //de sobel segun la documentacion y la formula
   if (row < y && col < x) {
-    int currGrad_x = grad_x[x * row + col];
-    int currGrad_y = grad_y[x * row + col];
+    unsigned char currGrad_x = grad_x[x * row + col];
+    unsigned char currGrad_y = grad_y[x * row + col];
 
     double grad_value = sqrt(double(currGrad_x * currGrad_x) + double(currGrad_y * currGrad_y));
 
-    grad[x * row + col] = (int)ceil(grad_value);
+    grad[x * row + col] = (unsigned char)ceil(grad_value);
   }
 }
 
@@ -74,12 +74,12 @@ int main() {
   //cudaError_t error = cudaSuccess;
   //clock_t startCPU, endCPU, startGPU, endGPU;
   //double cpu_time_used, gpu_time_used;
-  int *d_grad_x, *d_grad_y, *h_grad, *d_grad;
-  int *d_G_x, *d_G_y;
-  int *d_dataRawImage, *h_dataRawImage;
+  unsigned char *d_grad_x, *d_grad_y, *h_grad, *d_grad;
+  unsigned char *d_G_x, *d_G_y;
+  unsigned char *d_dataRawImage, *h_dataRawImage;
 
-  int h_mask_x[] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
-  int h_mask_y[] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
+  unsigned char h_mask_x[] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
+  unsigned char h_mask_y[] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
 
   Mat image, image_gray, grad;
   image = imread("./inputs/img3.jpg", CV_LOAD_IMAGE_COLOR);
@@ -92,10 +92,10 @@ int main() {
   Size s = image_gray.size();
   int x = s.width;//se obtiene el ancho y el alto de la imagen en escala de grises
   int y = s.height;
-  int size = sizeof(int) * x * y;
-  int maskSize = sizeof(int) * MASK_WIDTH * MASK_HEIGHT;
-  h_dataRawImage = new int[x * y];
-  h_grad = new int[x * y];
+  int size = sizeof(unsigned char) * x * y;
+  int maskSize = sizeof(unsigned char) * MASK_WIDTH * MASK_HEIGHT;
+  h_dataRawImage = new unsigned char[x * y];
+  h_grad = new unsigned char[x * y];
   
   //startGPU = clock();
   
@@ -117,7 +117,7 @@ int main() {
   int blockSize = 32;
   dim3 dimBlock(blockSize, blockSize, 1);
   dim3 dimGrid(ceil(x / float(blockSize)), ceil(y / float(blockSize)), 1);
-  sobelFilterGPU2<<< dimGrid, dimBlock >>>(d_dataRawImage, d_G_x, d_G_y, d_grad_x, d_grad_y,d_grad, y, x);
+  sobelFilterGPu<<< dimGrid, dimBlock >>>(d_dataRawImage, d_G_x, d_G_y, d_grad_x, d_grad_y,d_grad, y, x);
   cudaMemcpy(h_grad, d_grad, size, cudaMemcpyDeviceToHost);
   //endGPU = clock();
   
@@ -125,7 +125,7 @@ int main() {
   filterImg.create(y, x, CV_8UC1);
   filterImg.data = h_grad;
   
-  imwrite("./outputs/1088305497.png",filterImg);
+  imwrite("./outputs/1088002980.png",filterImg);
   
   free(h_grad);
   cudaFree(d_dataRawImage);
