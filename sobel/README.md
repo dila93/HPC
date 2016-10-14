@@ -33,3 +33,15 @@ los axiomas del operador sobel. Usamos diferente contenido de internet que nos e
 matematicamente hablando, al concatenar toda la información pudimos determinar que el operador de sobel se aplicaba haciendo
 convolución a una imagen en escala de grises con el filtro de sobel y pasandole por encima posteriormente el cálculo de la 
 magnitud y la transformación necesaria.
+<br>
+<br>
+Calculo que se hace teniendo en cuenta que las dos matrices numericas visibles son tomadas como la máscara para la convolucion en cada punto dependiendo del contexto horizontal o vertical, la letra **A** representa la imagen original en escala de grises, mientras que las letras **Gx** y **Gy** son las matrices resultantes de los puntos de la imagen:
+<br>
+![gráfica 1.1](/sobel/mult.png)
+<br>
+<br>
+Cálculo del vector magnitud que se hace utilizando el resultado de las matrices previamente calculadas:
+<br>
+![gráfica 1.2](/sobel/magnitud.png)
+
+
