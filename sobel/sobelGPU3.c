@@ -76,8 +76,8 @@ void sobelFilter(Mat &image, Mat &image_gray, Mat &grad) {
 
 int main() {
   //cudaError_t error = cudaSuccess;
-  clock_t startCPU, endCPU, startGPU, endGPU;
-  double cpu_time_used, gpu_time_used;
+  //clock_t startCPU, endCPU, startGPU, endGPU;
+  //double cpu_time_used, gpu_time_used;
   unsigned char *d_grad_x, *d_grad_y, *h_grad, *d_grad;
   int *d_G_x, *d_G_y;
   unsigned char *d_dataRawImage, *h_dataRawImage;
@@ -89,9 +89,9 @@ int main() {
   image = imread("./inputs/img3.jpg", CV_LOAD_IMAGE_COLOR);
 
   // CPU sobel
-  startCPU = clock();
+  //startCPU = clock();
   sobelFilter(image, image_gray, grad);
-  endCPU = clock();
+  //endCPU = clock();
   
   Size s = image_gray.size();
   int x = s.width;//se obtiene el ancho y el alto de la imagen en escala de grises
@@ -101,7 +101,7 @@ int main() {
   h_dataRawImage = new unsigned char[x * y];
   h_grad = new unsigned char[x * y];
   
-  startGPU = clock();
+  //startGPU = clock();
   
   cudaMalloc(&d_G_x, maskSize);//memoria para los filtros en X e Y
   cudaMalloc(&d_G_y, maskSize);  
@@ -123,7 +123,7 @@ int main() {
   dim3 dimGrid(ceil(x / float(blockSize)), ceil(y / float(blockSize)), 1);
   sobelFilterGPu<<< dimGrid, dimBlock >>>(d_dataRawImage, d_G_x, d_G_y, d_grad_x, d_grad_y,d_grad, y, x);
   cudaMemcpy(h_grad, d_grad, size, cudaMemcpyDeviceToHost);
-  endGPU = clock();
+  //endGPU = clock();
   
   Mat filterImg;
   filterImg.create(y, x, CV_8UC1);
