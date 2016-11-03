@@ -34,6 +34,7 @@
 8. El correcto funcionamiento de la aplicación será evaluado, esto significa incluir una rutina de comparación de resultados que deberá ser ejecutada sólo cuando el profesorlo indique y con ánimo de verificar que la multiplicación es correcta.(10%)
 9. La calidad y claridad del reporte que se presentará utilizando el markdown del repositorio tendrá un peso de 10%
 10. La entrega se hará de forma individual y tendrá un peso en la evaluación del 50%. Esto indica la claridad en la explicación, el conocimiento de los comandos básicos para ejecutar programas através de slurm y la comprensión en los procesos de compilación.
+
 NOTA: Recuerden que el recurso (Clúster) es compartido por todos y será vital el buen manejo que le demos al mismo. Verificar siempre si ustedes como primeros usuarios han dejado alguna tarea que no finaliza nunca y matar el trabajo. No dejen el desarrollo para la última semana porque probablemente van a estar todos haciendo pruebas a última hora. Si tienen problemas de ejecución por caída del cluster no olviden avisarme. Pueden crear grupos de trabajo de máximo 2 estudiantes.
 <br>
 <h2 >GENERACIÓN DEL CÓDIGO</h2>
