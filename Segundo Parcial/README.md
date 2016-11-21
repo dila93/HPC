@@ -96,6 +96,8 @@ Tuvimos problemas a la hora de entender como compilar el programa para poder com
 <br>
 <HR width=100% align="center">
 <br>
+
+<br>
 <h2>REFERENCIAS</h2>
 1. https://www.pdc.kth.se/resources/software/old-installed-software/mpi-libraries/cuda-and-mpi
 2. https://github.com/kala855/hpccourse/tree/master/mpiexamples/mpi_cuda_hello_world
