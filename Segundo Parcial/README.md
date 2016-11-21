@@ -66,6 +66,16 @@ Los siguientes comandos permiten usar cuda+mpi y compilar los archivos:
 
 ``` /usr/local/bin/mpicxx -o multi multi.o multi_cuda.o  -L"/usr/local/cuda-8.0"/lib64 -lcudart ```
 
+Aquí podemos ver como el archivo extern.h deja usar las librerias de otro programa:
+<br>
+![imagen 1.1](images_data/extern.png)
+<br>
+Luego al exportar este archivo podemos usar las funciones:
+<br>
+![imagen 1.2](images_data/include-extern.png)
+<br>
+De esta forma definimos cuales funciones dentro de extern.h usaremos:
+![imagen 1.2](images_data/extern-functions-definition.png)
 <br>
 <h2 >PROBLEMAS QUE SE ENCUENTRAN</h2>
 Tuvimos problemas a la hora de entender como compilar el programa para poder compilar y ejecutar cuda+mpi, por lo que tuvimos que investigar de varias fuentes mencionadas en la sección de referencias, también tuvimos problemas al correr los tiempos de ejecución con la implementación y usando solo CPU.
