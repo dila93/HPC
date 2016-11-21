@@ -87,28 +87,36 @@ Tuvimos problemas a la hora de entender como compilar el programa para poder com
 De esta forma se desarrolla el algoritmo para los diferentes nodos usando MPI+CUDA:
 usando 1 nodo:
 <br>
+![grafica 1.1](images_data/grafica1-1.png)
 <br>
 usando 2 nodos:
 <br>
+![grafica 1.2](images_data/grafica1-2.png)
 <br>
 usando 3 nodos:
 <br>
+![grafica 1.3](images_data/grafica1-3.png)
 <br>
 usando 4 nodos:
 <br>
+![grafica 1.4](images_data/grafica1-4.png)
 <br>
 Esta es la grafica comparando tiempos de ejcución de MPI+CUDA vs solo CPU:
 usando 1 nodo vs primera ejecución en cpu:
 <br>
+![grafica 2.1](images_data/grafica2-1.png)
 <br>
 usando 2 nodos vs segunda ejecución en cpu:
 <br>
+![grafica 2.2](images_data/grafica2-2.png)
 <br>
 usando 3 nodos vs tercera ejecución en cpu:
 <br>
+![grafica 2.3](images_data/grafica2-3.png)
 <br>
 usando 4 nodos vs cuarta ejecución en cpu
 <br>
+![grafica 2.4](images_data/grafica2-4.png)
 <br>
 <HR width=100% align="center">
 <br>
