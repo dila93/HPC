@@ -84,15 +84,31 @@ Tuvimos problemas a la hora de entender como compilar el programa para poder com
 <br>
 <h2>RECOLECCIÓN DE DATOS</h2>
 <br>
-1. En la **tabla 1.1**, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-![tabla 1.1](Tamaños_matriz.PNG)
+De esta forma se desarrolla el algoritmo para los diferentes nodos usando MPI+CUDA:
+usando 1 nodo:
 <br>
-<h6>tabla 1.1</h6>
 <br>
-2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum como podemos observar en la **gráfica 1.1** para la CPU y la **gráfica 1.2** para la GPU
-![gráfica 1.1](grafica1-CPU.PNG)
+usando 2 nodos:
 <br>
-<h6>gráfica 1.1</h6>
+<br>
+usando 3 nodos:
+<br>
+<br>
+usando 4 nodos:
+<br>
+<br>
+Esta es la grafica comparando tiempos de ejcución de MPI+CUDA vs solo CPU:
+usando 1 nodo vs primera ejecución en cpu:
+<br>
+<br>
+usando 2 nodos vs segunda ejecución en cpu:
+<br>
+<br>
+usando 3 nodos vs tercera ejecución en cpu:
+<br>
+<br>
+usando 4 nodos vs cuarta ejecución en cpu
+<br>
 <br>
 <HR width=100% align="center">
 <br>
