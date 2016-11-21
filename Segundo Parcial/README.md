@@ -57,10 +57,18 @@
 **NOTA:** Recuerden que el recurso (Clúster) es compartido por todos y será vital el buen manejo que le demos al mismo. Verificar siempre si ustedes como primeros usuarios han dejado alguna tarea que no finaliza nunca y matar el trabajo. No dejen el desarrollo para la última semana porque probablemente van a estar todos haciendo pruebas a última hora. Si tienen problemas de ejecución por caída del cluster no olviden avisarme. Pueden crear grupos de trabajo de máximo 2 estudiantes.
 <br>
 <h2 >GENERACIÓN DEL CÓDIGO</h2>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Para la generación del código en el momento de usar mpi+cuda al mismo tiempo usamos dos archivos donde se encuentra el código de mpi y el de cuda respectivamente, las funciones que se encuentran en el archivo de cuda llamado **multi_mpi_cuda.cu** servirán para multiplicar las matrices bajo cuda, a su vez estas funciones se pueden llamar como funciones externas, esto gracias a que un archivo aparte llamado **extern.h** hace posible esta labor. Desde el archivo mpi llamado **multi_mpi.c** se puede importar el archivo extern.h como una librería, permitiendo usar sus funciones, es de este modo al ejecutarse cada nodo usando mpi se hace el respectivo calculo con gpu usando las librerias externas previamente definidas.
+Los siguientes comandos permiten usar cuda+mpi y compilar los archivos:
+
+``` /usr/local/bin/mpicxx -o multi.o -c multi_mpi.c ```
+
+``` "/usr/local/cuda-8.0"/bin/nvcc -ccbin g++ -m64 -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,$ ```
+
+``` /usr/local/bin/mpicxx -o multi multi.o multi_cuda.o  -L"/usr/local/cuda-8.0"/lib64 -lcudart ```
+
 <br>
 <h2 >PROBLEMAS QUE SE ENCUENTRAN</h2>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Tuvimos problemas a la hora de entender como compilar el programa para poder compilar y ejecutar cuda+mpi, por lo que tuvimos que investigar de varias fuentes mencionadas en la sección de referencias, también tuvimos problemas al correr los tiempos de ejecución con la implementación y usando solo CPU.
 <br>
 <HR width=100% align="center">
 <br>
@@ -77,6 +85,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <h6>gráfica 1.1</h6>
 <br>
 <HR width=100% align="center">
+<br>
+<h2>REFERENCIAS</h2>
+1. https://www.pdc.kth.se/resources/software/old-installed-software/mpi-libraries/cuda-and-mpi
+2. https://github.com/kala855/hpccourse/tree/master/mpiexamples/mpi_cuda_hello_world
+3. http://lsi.ugr.es/jmantas/pdp/ayuda/ayuda.php
 <br>
 <h2>CONCLUSIONES</h2>
 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
