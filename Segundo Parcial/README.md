@@ -74,7 +74,7 @@ Luego al exportar este archivo podemos usar las funciones:
 <br>
 ![imagen 1.2](images_data/include-extern.png)
 <br>
-De esta forma definimos cuales funciones dentro de extern.h usaremos:
+De esta forma definimos cuales funciones usaremos:
 ![imagen 1.2](images_data/extern-functions-definition.png)
 <br>
 <h2 >PROBLEMAS QUE SE ENCUENTRAN</h2>
