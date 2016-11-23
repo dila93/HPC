@@ -36,7 +36,7 @@
 **4.** El tamaño de las matrices a multiplicar será definido por cada uno de los estudiantes y será tenido en cuenta como un 10% de ésta nota.
 <br>
 
-**5.** Se tendrá que hacer un análisis de tiempo que muestre cómo el algoritmo desarrollado se comporta al correr usando 1 solo nodo, usando 2, usando 3 y finalmente 4. (10%)
+**5.** Se tendrá que hacer un análisis de tiempo que muestre cómo el algoritmo desarrollado se comporta al correr usando 1 solo nodo, usando 2, y finalmente 3. (10%)
 <br>
 
 **6.** Se deberá comparar la solución obtenida con una donde se usen solamente CPU’s. Esta comparativa deberá también incluir tiempos de ejecución y gráficas de aceleración. (10%). De nuevo hacer el análisis para cada uno de los nodos.
