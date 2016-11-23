@@ -128,7 +128,7 @@ usando 4 nodos vs cuarta ejecución en cpu
 3. http://lsi.ugr.es/jmantas/pdp/ayuda/ayuda.php
 <br>
 <h2>CONCLUSIONES</h2>
-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-2. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-3. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+1. Apesar de que utilizamos matrices de un tamaño moderado, podemos notar como el performance de las operaciones se mejora significativamente cuando repartimos partes de las tareas en diferentes nodos, podemos ver que dividir un problema grande como lo es la multiplicacion de matrices grandes en pequeñas operaciones el resultado sera mucho mas rapido de obtener.
+
+2. La combinación de dos tecnologías como MPI y CUDA significan un gran avance para el mejoramiento de los algoritmos actuales, ya que para procesamientos pesados como renderización de imágenes o una red de neuronas de inteligencia artificial es muy posible combinarlos con estas tecnologias logrando crear un buen desempeño a nivel de recursos
 <br>
