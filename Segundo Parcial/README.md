@@ -157,6 +157,14 @@ Esta es la gráfica comparando tiempos de ejcución de **solo CPU con MPI** vs *
 En esta gráfica se aprecia evidentemente la mejora que se ve en tiempo de ejecucción del algoritmo con CUDA+MPI con respecto a MPI solo, si tuvieramos matrices mas grandes seria mas obvio las diferencias, pero a pesar de los tamaños trabajados podemos ver como cuda mejora considerablemente el tiempo de ejecucción, en la gráfica podemos ver como usando matrices relativamente pequeñas para 1 nodo en CPU se demora un tiempo considerable en ejecutar, mientras que para MPI+CUDA y la misma cantidad de nodos este tiempo de ejecución y casi nulo, también se puede apreciar como para MPI+CUDA funciona mejora usar matrices de tamaño considerablemente elevado, ya que al usar matrices pequeñas el tiempo de ejecución se ve afectado entre más número de nodos, así como se puede notar en la pendiente, mientras que para cpu mejora el performance de la ejecución del mismo tamaño de las matrices.
 <br>
 <br>
+Por último, tenemos la gráfica de los datos de aceleración entre MPI(CPU) Y MPI+CUDA:
+<br>
+![grafica 3.1](images_data/ACELERACION.png)
+<br>
+**Descripción:**
+<br>
+En esta gráfica se toman las aceleraciones de los tres nodos usando cpu y gpu respectivamente, a la final se hace un promedio de los datos para generar la gráfica. Esta gráfica demuestra que a medida que aumenta la cantidad de nodos, también aumenta la aceleración, esto provoca que el proceso de ejecución sea más rápido al haber más tareas encargadas de la ejecución.
+<br>
 <HR width=100% align="center">
 <br>
 
