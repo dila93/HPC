@@ -91,56 +91,72 @@ Usaremos matrices de 5000x4000x5000 inicialmente para agilizar el proceso de an�
 <br>
 En primer lugar usamos la solución en CPU utilizando MPI para tomar 5 tiempos con 1 nodo, 5 tiempos con 2 nodos y 5 tiempos con 3 nodos.
 <br>
-MPI (CPU)
-usando 1 nodo:
+**MPI (CPU)**
+Usando 1 nodo:
 <br>
 ![grafica 1.1](images_data/CPU_MPI_Nodo1.png)
 <br>
-usando 2 nodos:
+<br>
+Usando 2 nodos:
 <br>
 ![grafica 1.2](images_data/CPU_MPI_Nodo2.png)
 <br>
-usando 3 nodos:
+<br>
+Usando 3 nodos:
 <br>
 ![grafica 1.3](images_data/CPU_MPI_Nodo3.png)
+<br>
 <br>
 Promedio de los tiempos de ejecución vs la cantidad de nodos en cada ejecución:
 <br>
 ![grafica 1.4](images_data/CPU-MPI_PROMEDIO_VS_NODOS.png)
 <br>
-en esta grafica podemos notar como el tiempo de ejecuccion del algoritmo disminuye significativamente cade vez que le agregamos mas nodos a la ejecuccioni se puede notar el uso de MPI repartiendo trabajo entre los nodos del cluster
+**Descripción:**
+<br>
+En esta grafica podemos notar como el tiempo de ejecuccion del algoritmo disminuye significativamente cade vez que le agregamos mas nodos a la ejecuccioni se puede notar el uso de MPI repartiendo trabajo entre los nodos del cluster
 <br>
 <br>
-En segundo lugar, haremos la toma de los calculos del promedio de los tiempos de ejecución del algoritmo usando sólo MPI+CUDA
+En segundo lugar, haremos la toma de los cálculos del promedio de los tiempos de ejecución del algoritmo usando sólo **MPI+CUDA**
+<br>
 <br>
 Usando 1 nodo:
 <br>
 ![grafica 2.1](images_data/CUDA_MPI_Nodo1.png)
 <br>
-usando 2 nodos:
+<br>
+Usando 2 nodos:
 <br>
 ![grafica 2.2](images_data/CUDA_MPI_Nodo2.png)
 <br>
-usando 3 nodos:
+<br>
+Usando 3 nodos:
 <br>
 ![grafica 2.3](images_data/CUDA_MPI_Nodo3.png)
+<br>
 <br>
 Promedio de los tiempos de ejecución con MPI+CUDA vs la cantidad de nodos en cada ejecución:
 <br>
 ![grafica 2.4](images_data/CUDA-MPI_PROMEDIO_VS_NODOS.png)
 <br>
-En esta grafica se ve el comportamiento del algoritmo ejecutandose con cuda + MPI, por tener matrices pequeñas el algorimto pareciera que no hace un performance optimo pero si consideramos que se gasta tiempo en copiar memoria de cpu a GPU es evidente que suceda este comportamiento, pero lo que si podemos predecir y es claro con la grafica que sitenemos matrices mas grandes tendremos una mejora en los tiempos ya que se ve reflejado con las graficas anteriores
+**Descripción:**
+<br>
+En esta grafica se ve el comportamiento del algoritmo ejecutandose con cuda + MPI, por tener matrices pequeñas el algorimto pareciera que no hace un performance óptimo pero si consideramos que se gasta tiempo en copiar memoria de cpu a GPU es evidente que suceda este comportamiento, pero lo que si podemos predecir y es claro con la gráfica es que si tenemos matrices más grandes tendremos una mejora en los tiempos ya que se ve reflejado con las gráficas anteriores.
 <br>
 <br>
-Esta es la gráfica comparando tiempos de ejcución de MPI+CUDA vs solo CPU:
+En tercer lugar, hacemos una comparativa del comportamiento con diferente cantidad de nodos entre MPI+CUDA y CPU (MPI).
+<br>
+<br>
+Esta es la gráfica comparando tiempos de ejcución de **solo CPU con MPI** vs **MPI+CUDA**:
 <br>
 ![grafica 3.1](images_data/CPU_vs_MPI+CUDA.png)
 <br>
-en esta grafica azul es MPI y rojo MPI+CUDA
+(En esta grafica el color azul es MPI y el rojo MPI+CUDA)
 <br>
-en esta grafica se apercia evidentemente la mejora que se ve en tiempo de ejecuccion del algoritmo con CUDA+MPI con respecto a MPI solo, si tuvieramos matrices mas grandes seria mas obvio las diferenci, pero a pesar de los tamaños trabajados podemos ver como cuda mejora considerablemente el tiempo de ejecucción.
+**Descripción:**
 <br>
-
+En esta gráfica se aprecia evidentemente la mejora que se ve en tiempo de ejecucción del algoritmo con CUDA+MPI con respecto a MPI solo, si tuvieramos matrices mas grandes seria mas obvio las diferencias, pero a pesar de los tamaños trabajados podemos ver como cuda mejora considerablemente el tiempo de ejecucción, en la gráfica podemos ver como usando matrices relativamente pequeñas para 1 nodo en CPU se demora un tiempo considerable en ejecutar, mientras que para MPI+CUDA y la misma cantidad de nodos este tiempo de ejecución y casi nulo, también se puede apreciar como para MPI+CUDA funciona mejora usar matrices de tamaño considerablemente elevado, ya que al usar matrices pequeñas el tiempo de ejecución se ve afectado entre más número de nodos, así como se puede notar en la pendiente, mientras que para cpu mejora el performance de la ejecución del mismo tamaño de las matrices.
+<br>
+<br>
 <HR width=100% align="center">
 <br>
 
@@ -151,7 +167,7 @@ en esta grafica se apercia evidentemente la mejora que se ve en tiempo de ejecuc
 3. http://lsi.ugr.es/jmantas/pdp/ayuda/ayuda.php
 <br>
 <h2>CONCLUSIONES</h2>
-1. Apesar de que utilizamos matrices de un tamaño moderado, podemos notar como el performance de las operaciones se mejora significativamente cuando repartimos partes de las tareas en diferentes nodos, podemos ver que dividir un problema grande como lo es la multiplicacion de matrices grandes en pequeñas operaciones el resultado sera mucho mas rapido de obtener.
+1. Apesar de que utilizamos matrices de un tamaño moderado, podemos notar como el performance de las operaciones se mejora significativamente cuando repartimos partes de las tareas en diferentes nodos, podemos ver que dividir un problema grande como lo es la multiplicación de matrices grandes en pequeñas operaciones el resultado sera mucho mas rápido de obtener.
 
-2. La combinación de dos tecnologías como MPI y CUDA significan un gran avance para el mejoramiento de los algoritmos actuales, ya que para procesamientos pesados como renderización de imágenes o una red de neuronas de inteligencia artificial es muy posible combinarlos con estas tecnologias logrando crear un buen desempeño a nivel de recursos
+2. La combinación de dos tecnologías como MPI y CUDA significan un gran avance para el mejoramiento de los algoritmos actuales, ya que para procesamientos pesados como renderización de imágenes o una red de neuronas de inteligencia artificial es muy posible combinarlos con estas tecnologías logrando crear un buen desempeño a nivel de recursos.
 <br>
