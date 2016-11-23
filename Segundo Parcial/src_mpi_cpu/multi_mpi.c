@@ -17,8 +17,8 @@
 #include <time.h>
 #include "extern.h"
 
-#define NRA 10000         // number of rows in matrix A
-#define NCA 9000         // number of columns in matrix A
+#define NRA 5000         // number of rows in matrix A
+#define NCA 4000         // number of columns in matrix A
 #define NCB 5000         // number of columns in matrix B
 #define MASTER 0      // taskid of first task
 #define FROM_MASTER 1 // setting a message type
