@@ -59,6 +59,7 @@
 <h2 >GENERACIÓN DEL CÓDIGO</h2>
 La solución del enunciado se compone de dos carpetas en dónde se encuentran dos soluciones, la primera solución es la que usa MPI (CPU) únicamente, y esta se encuentra en la carpeta **src_mpi_cpu**, la segunda solución utiliza MPI+CUDA y se encuentra en la carpeta **src_cuda_mpi**, cada solución tiene como objetivo la ejecución de matrices con diferente cantidad de nodos en entornos diferentes, la toma de tiempos y comparación de estos. Cada solución contiene los mismos archivos que solo difieren en el código implementado en el archivo **multi_mpi.c**.
 <br>
+<br>
 Para la generación del código en el momento de usar mpi+cuda al mismo tiempo usamos dos archivos donde se encuentra el código de mpi y el de cuda respectivamente, las funciones que se encuentran en el archivo de cuda llamado **multi_mpi_cuda.cu** servirán para multiplicar las matrices bajo cuda, a su vez estas funciones se pueden llamar como funciones externas, esto gracias a que un archivo aparte llamado **extern.h** hace posible esta labor. Desde el archivo mpi llamado **multi_mpi.c** se puede importar el archivo extern.h como una librería, permitiendo usar sus funciones, es de este modo al ejecutarse cada nodo usando mpi se hace el respectivo calculo con gpu usando las librerias externas previamente definidas.
 Los siguientes comandos permiten usar cuda+mpi y compilar los archivos:
 
@@ -85,41 +86,61 @@ Tuvimos problemas a la hora de entender como compilar el programa para poder com
 <HR width=100% align="center">
 <br>
 <h2>RECOLECCIÓN DE DATOS</h2>
+Usaremos matrices de 5000x4000x5000 inicialmente para agilizar el proceso de análisis.
 <br>
-De esta forma se desarrolla el algoritmo para los diferentes nodos usando MPI+CUDA:
+<br>
+En primer lugar usamos la solución en CPU utilizando MPI para tomar 5 tiempos con 1 nodo, 5 tiempos con 2 nodos y 5 tiempos con 3 nodos.
+<br>
+MPI (CPU)
 usando 1 nodo:
 <br>
-![grafica 1.1](images_data/grafica1-1.png)
+![grafica 1.1](images_data/CPU_MPI_Nodo1.png)
 <br>
 usando 2 nodos:
 <br>
-![grafica 1.2](images_data/grafica1-2.png)
+![grafica 1.2](images_data/CPU_MPI_Nodo2.png)
 <br>
 usando 3 nodos:
 <br>
-![grafica 1.3](images_data/grafica1-3.png)
+![grafica 1.3](images_data/CPU_MPI_Nodo3.png)
 <br>
-usando 4 nodos:
+Promedio de los tiempos de ejecución vs la cantidad de nodos en cada ejecución:
 <br>
-![grafica 1.4](images_data/grafica1-4.png)
+![grafica 1.4](images_data/CPU-MPI_PROMEDIO_VS_NODOS.png)
 <br>
-Esta es la grafica comparando tiempos de ejcución de MPI+CUDA vs solo CPU:
-usando 1 nodo vs primera ejecución en cpu:
+en esta grafica podemos notar como el tiempo de ejecuccion del algoritmo disminuye significativamente cade vez que le agregamos mas nodos a la ejecuccioni se puede notar el uso de MPI repartiendo trabajo entre los nodos del cluster
 <br>
-![grafica 2.1](images_data/grafica2-1.png)
 <br>
-usando 2 nodos vs segunda ejecución en cpu:
+En segundo lugar, haremos la toma de los calculos del promedio de los tiempos de ejecución del algoritmo usando sólo MPI+CUDA
 <br>
-![grafica 2.2](images_data/grafica2-2.png)
+Usando 1 nodo:
 <br>
-usando 3 nodos vs tercera ejecución en cpu:
+![grafica 2.1](images_data/CUDA_MPI_Nodo1.png)
 <br>
-![grafica 2.3](images_data/grafica2-3.png)
+usando 2 nodos:
 <br>
-usando 4 nodos vs cuarta ejecución en cpu
+![grafica 2.2](images_data/CUDA_MPI_Nodo2.png)
 <br>
-![grafica 2.4](images_data/grafica2-4.png)
+usando 3 nodos:
 <br>
+![grafica 2.3](images_data/CUDA_MPI_Nodo3.png)
+<br>
+Promedio de los tiempos de ejecución con MPI+CUDA vs la cantidad de nodos en cada ejecución:
+<br>
+![grafica 2.4](images_data/CUDA-MPI_PROMEDIO_VS_NODOS.png)
+<br>
+En esta grafica se ve el comportamiento del algoritmo ejecutandose con cuda + MPI, por tener matrices pequeñas el algorimto pareciera que no hace un performance optimo pero si consideramos que se gasta tiempo en copiar memoria de cpu a GPU es evidente que suceda este comportamiento, pero lo que si podemos predecir y es claro con la grafica que sitenemos matrices mas grandes tendremos una mejora en los tiempos ya que se ve reflejado con las graficas anteriores
+<br>
+<br>
+Esta es la gráfica comparando tiempos de ejcución de MPI+CUDA vs solo CPU:
+<br>
+![grafica 3.1](images_data/CPU_vs_MPI+CUDA.png)
+<br>
+en esta grafica azul es MPI y rojo MPI+CUDA
+<br>
+en esta grafica se apercia evidentemente la mejora que se ve en tiempo de ejecuccion del algoritmo con CUDA+MPI con respecto a MPI solo, si tuvieramos matrices mas grandes seria mas obvio las diferenci, pero a pesar de los tamaños trabajados podemos ver como cuda mejora considerablemente el tiempo de ejecucción.
+<br>
+
 <HR width=100% align="center">
 <br>
 
